@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1328 945" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="RGB_invertiert" transform="matrix(1.729436,0,0,1,-1736.2447,0)">
+        <rect x="1003.937" y="0" width="767.717" height="944.882" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <rect x="1003.937" y="0" width="767.717" height="944.882"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(1,0,-0,1,0.937008,-0)">
+                <rect x="1003" y="0" width="767.717" height="944.882" style="fill:none;"/>
+            </g>
+            <g transform="matrix(0.578223,0,0,1,423.437315,-40)">
+                <g transform="matrix(4.429151,-0.543831,0.543831,4.429151,-4921.192124,-6187.294438)">
+                    <clipPath id="_clip2">
+                        <path d="M1256.982,1615.5L1271.915,1642.7L1239.115,1654.167L1271.915,1665.367L1255.915,1693.634L1229.248,1670.167L1235.915,1704.834L1204.715,1704.834L1211.115,1670.167L1184.715,1693.9L1168.182,1665.1L1200.982,1653.634L1168.448,1642.967L1183.648,1615.5L1211.382,1638.7L1204.448,1603.5L1236.182,1603.5L1229.248,1638.7L1256.982,1615.5Z" clip-rule="nonzero"/>
+                    </clipPath>
+                    <g clip-path="url(#_clip2)">
+                        <g transform="matrix(266.666667,0,0,266.666667,1290.848356,1800.833719)">
+                        </g>
+                        <text x="1148.448px" y="1800.834px" style="font-family:'Poppins-Bold', 'Poppins';font-weight:700;font-size:266.667px;fill:rgb(209,98,164);">*</text>
+                        <g transform="matrix(0.228494,0.029089,-0.029089,0.228494,942.809464,1272.625147)">
+                            <circle cx="1223.074" cy="1629.832" r="285.818" style="fill:rgb(255,154,86);"/>
+                        </g>
+                    </g>
+                </g>
+                <g transform="matrix(1,0,0,1,18.771688,-1014.437139)">
+                    <g transform="matrix(266.666667,0,0,266.666667,1644.981689,1800.833719)">
+                    </g>
+                    <text x="1148.448px" y="1800.834px" style="font-family:'FreestyleScriptStd-Bold', 'Freestyle Script Std';font-weight:700;font-size:266.667px;fill:white;">MEET</text>
+                </g>
+                <g id="LEZ" transform="matrix(1,0,0,1,0.937008,0)">
+                    <path d="M1198.474,284.81L1258.207,284.81L1258.207,320.01L1152.874,320.01L1152.874,132.81L1198.474,132.81L1198.474,284.81ZM1325.674,169.344L1325.674,207.21L1386.741,207.21L1386.741,242.41L1325.674,242.41L1325.674,283.477L1394.741,283.477L1394.741,320.01L1280.074,320.01L1280.074,132.81L1394.741,132.81L1394.741,169.344L1325.674,169.344ZM1468.874,282.677L1549.407,282.677L1549.407,320.01L1417.141,320.01L1417.141,285.344L1497.141,170.144L1417.141,170.144L1417.141,132.81L1549.407,132.81L1549.407,167.477L1468.874,282.677Z" style="fill:white;fill-rule:nonzero;"/>
+                </g>
+            </g>
+            <g transform="matrix(0.752896,0,0,1.302086,997.137733,-571.397609)">
+                <text x="149.984px" y="1122px" style="font-family:'Poppins-SemiBold', 'Poppins';font-weight:600;font-size:70.833px;fill:white;">... dein neuer</text>
+                <text x="623.717px" y="1122px" style="font-family:'FreestyleScriptBoldPlain', 'Freestyle Script Bold';font-size:100px;fill:white;">sapphic</text>
+                <g transform="matrix(70.833333,0,0,70.833333,1019.716965,1122)">
+                </g>
+                <text x="832.575px" y="1122px" style="font-family:'Poppins-SemiBold', 'Poppins';font-weight:600;font-size:70.833px;fill:white;">Treff!</text>
+            </g>
+        </g>
+    </g>
+</svg>
