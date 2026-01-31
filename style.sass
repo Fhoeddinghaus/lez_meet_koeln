@@ -240,7 +240,8 @@ a.nav-item
 
   &:hover, &.active
     background-color: var(--pink)
-      
+
+// UTILITIES      
 spacer
   display: block
   height: var(--content-padding)
@@ -276,6 +277,13 @@ spacer.large
   margin-top: 0
 .b-left
   border-left: 2px solid var(--darkrose)
+.float-right
+  float: right
+.float-clear
+  clear: both
+.text-center
+  text-align: center
+
 
 hero
   background-image: url("https://images.unsplash.com/photo-1621783038661-f6c5af8aac1d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
@@ -351,6 +359,22 @@ main
       padding: var(--content-padding)
       border-bottom: 2px solid var(--darkrose)
       vertical-align: top
+
+      div.date
+        display: grid
+        grid-template-rows: auto auto
+        grid-template-columns: 1fr
+        text-align: center
+      img.day
+        width: 6ch
+        margin: 0 auto
+      span.time
+        font-weight: 500
+        &::before
+          content: '\f017'
+          font-family: 'FontAwesome'
+          padding-right: 0.5ch
+
 
   
   
