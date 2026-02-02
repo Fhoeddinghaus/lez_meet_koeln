@@ -365,13 +365,13 @@ header nav {
 }
 
 header.shrunk {
-  height: 12.5vh;
+  height: max(12.5vh, 3.5em) !important;
 }
 header.shrunk img.header-logo {
-  height: 8vh;
+  height: max(8vh, 2em);
 }
 header.shrunk nav {
-  height: 10vh;
+  height: max(10vh, 2.5em);
 }
 
 @media only screen and (max-width: 530px) {
@@ -389,15 +389,16 @@ header.shrunk nav {
 a.nav-item {
   display: block;
   padding: 15px;
-  transition: background 0.1s;
+  transition: background 0.5s;
   color: var(--white);
   text-decoration: none;
   min-height: calc(10vh - 30px);
+  cursor: pointer;
 }
-a.nav-item:hover, a.nav-item.active {
+a.nav-item:hover:not(.no-hover), a.nav-item.active {
   background-color: var(--pink);
 }
-a.nav-item:hover:nth-of-type(2), a.nav-item.active:nth-of-type(2) {
+a.nav-item:hover:not(.no-hover).nav-item-darkorange, a.nav-item.active.nav-item-darkorange {
   background-color: var(--darkorange) !important;
 }
 
@@ -512,6 +513,23 @@ spacer.large {
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
+body.high-contrast .hc-fg-black {
+  color: var(--black) !important;
+}
+body.high-contrast .button-high-contrast {
+  background-color: var(--white) !important;
+  color: var(--black) !important;
+}
+
+@media (prefers-contrast: more) {
+  body .hc-fg-black {
+    color: var(--black) !important;
+  }
+}
 hero {
   background-image: url("https://images.unsplash.com/photo-1621783038661-f6c5af8aac1d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
@@ -543,6 +561,9 @@ main h1, main h2, main h3, main h3, main h4, main h5, main h6 {
 }
 main a[id], main h1[id], main h2[id], main h3[id], main h4[id], main h5[id], main h6[id], main section[id] {
   scroll-margin-top: var(--header-offset);
+}
+main div.wrapper {
+  padding: var(--small-content-padding) 0;
 }
 main a {
   color: var(--darkrose);
@@ -584,6 +605,7 @@ main ul.inline-list li::before {
 main table.calendar {
   width: 100%;
   border-spacing: 0;
+  text-align: left;
 }
 main table.calendar tr td {
   padding: var(--content-padding);

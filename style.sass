@@ -196,11 +196,11 @@ header nav
   transition: 0.2s
   
 header.shrunk
-  height: 12.5vh
+  height: max(12.5vh, 3.5em) !important
   img.header-logo
-    height: 8vh
+    height: max(8vh, 2em)
   nav
-    height: 10vh
+    height: max(10vh, 2.5em)
 
 @media only screen and (max-width: 530px)
   header
@@ -214,14 +214,15 @@ header.shrunk
 a.nav-item
   display: block
   padding: 15px
-  transition: background 0.1s
+  transition: background 0.5s
   color: var(--white)
   text-decoration: none
   min-height: calc(10vh - 30px)
+  cursor: pointer
 
-  &:hover, &.active
+  &:hover:not(.no-hover), &.active
     background-color: var(--pink)
-    &:nth-of-type(2)
+    &.nav-item-darkorange
       background-color: var(--darkorange) !important
 
 // UTILITIES      
@@ -281,6 +282,23 @@ spacer.large
   clear: both
 .text-center
   text-align: center
+.text-left
+  text-align: left
+
+body.high-contrast
+  // enabled high contrast mode
+  .hc-fg-black
+    color: var(--black) !important
+
+  .button-high-contrast
+    background-color: var(--white) !important
+    color: var(--black) !important
+
+@media (prefers-contrast: more)
+  body
+    // system high contrast mode
+    .hc-fg-black
+      color: var(--black) !important
 
 
 hero
@@ -316,7 +334,9 @@ main
     
   a[id],h1[id],h2[id],h3[id],h4[id],h5[id],h6[id], section[id]
     scroll-margin-top: var(--header-offset)
-    
+  
+  div.wrapper
+    padding: var(--small-content-padding) 0
   a
     color: var(--darkrose)
     display: inline-block
@@ -355,6 +375,7 @@ main
   table.calendar
     width: 100%
     border-spacing: 0
+    text-align: left
     tr
       td
         padding: var(--content-padding)

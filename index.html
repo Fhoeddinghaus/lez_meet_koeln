@@ -7,7 +7,9 @@
     <title>LEZ*MEET... dein neuer sapphic Treff!</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js" defer></script>
+    <script src="js/scroll.js" defer></script>
+    <script src="js/intersectionobserver.js" defer></script>
+    <script src="js/accessibility.js" defer></script>
     <link rel="shortcut icon" href="assets/asterisk-with-colors.svg" type="image/x-icon">
     <!--base href="https://fhoeddinghaus.github.io/lez_meet_koeln/"-->
 
@@ -16,12 +18,13 @@
 <body>
     <header class="bg-darkrose fg-white poppins-medium" id="headerouter">
         <div class="header-inner container">
-            <a href="">
-                <img class="header-logo" id="headerlogo" src="./assets/logo-white-with-slogan.svg" />
+            <a href="" aria-label="Startseite" tabindex="-1">
+                <img class="header-logo" id="headerlogo" src="./assets/logo-white-with-slogan.svg" alt="Logo: LEZ*MEET... dein neuer sapphic Treff!" />
             </a>
             <nav class="header-nav" id="headernav">
-                <a class="nav-item" href="./#ueber" id="nav-ueber"><i class="fa-solid fa-house"></i> Über</a>
-                <a class="nav-item" href="./#kalender" id="nav-kalender"><i class="fa-solid fa-calendar-days"></i> Kalender</a>
+                <a class="nav-item" href="./#ueber" id="nav-ueber" aria-label="Über uns" tabindex="1"><i class="fa-solid fa-house"></i> Über</a>
+                <a class="nav-item nav-item-darkorange" href="./#kalender" id="nav-kalender" aria-label="Kalender" tabindex="2"><i class="fa-solid fa-calendar-days"></i> Kalender</a>
+                <a class="nav-item no-hover button-high-contrast" aria-label="Hoher Kontrast aktivieren/deaktivieren" title="Hoher Kontrast (aktivieren/deaktivieren)" tabindex="3" href="#"><i class="fa-solid fa-circle-half-stroke"></i></a>
             </nav>
         </div>
     </header>
@@ -36,98 +39,113 @@
     </section>
 
     <main class="poppins-regular">
-        <div class="container">
 
 
-            <section id="ueber">
+        <section id="ueber" class="">
+            <div class="container">
                 <h2 class="poppins-bold bg-pink b-0 fg-white p-15 w-fit">Über uns</h2>
                 <hr class="bg-pink fg-pink">
                 <p>
-                    LEZ*MEET ist ein <b>ehrenamtlich organisiertes </b>Treffen und Safer Space für junge <em class="poppins-regular-italic">Sapphics</em>: 
+                    LEZ*MEET ist ein <b>ehrenamtlich organisiertes </b>Treffen und Safer Space für junge <a href="#sapphic" class="" aria-label="Zur Begriffserklärung zu Sapphic"><em class="poppins-regular-italic">Sapphics</em></a>: 
                     lesbische, bisexuelle &amp; queere junge Frauen und (trans-)feminine nichtbinäre Personen zwischen 24 und 35 Jahren.
                 </p>
                 <p>
-                    Entstanden ist die Idee aus LES*quisit heraus, einem Angebot des <a href="https://www.anyway-koeln.de/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i>anyway e. V.</a> für junge Menschen unter 27 Jahren, was die Obergrenze für die klassische "Jugendarbeit" darstellt. 
+                    Entstanden ist die Idee aus LES*quisit heraus, einem Angebot des <a href="https://www.anyway-koeln.de/" target="_blank" aria-label="anyway e. V."><i class="fa-solid fa-arrow-up-right-from-square"></i>anyway e. V.</a> für junge Menschen unter 27 Jahren, was die Obergrenze für die klassische "Jugendarbeit" darstellt. 
                     <br />
                     Aber natürlich endet mit 27 nicht einfach das Bedürfnis nach einem gleichaltrigen Community-Space – und die anderen Angebote in Köln haben alle einen Altersschnitt von 50+ Jahren. Aus diesem Grund haben wir <b class="poppins-bold">LEZ*MEET</b> gegründet.
                 </p>
                 <ul class="inline-list">
-                    <li><a href="#angebote">Unsere Angebote</a></li>
-                    <li><a href="#ortzeit">Orte &amp; Zeiten</a></li>
-                    <li><a href="#mitmachen">Teilnehmen oder Mitmachen?</a></li>
-                    <li><a href="#sapphic">Was heißt <span class="poppins-regular-italic">"sapphic"</span>?</a></li>
-                    <li><a href="#sprache">Allgemeiner Hinweis zur Sprache</a></li>
+                    <li><a href="#angebote" aria-label="Unsere Angebote">Unsere Angebote</a></li>
+                    <li><a href="#ortzeit" aria-label="Orte und Zeiten">Orte &amp; Zeiten</a></li>
+                    <li><a href="#mitmachen" aria-label="Teilnehmen oder Mitmachen?">Teilnehmen oder Mitmachen?</a></li>
+                    <li><a href="#sapphic" aria-label="Was heißt sapphic?">Was heißt <span class="poppins-regular-italic">"sapphic"</span>?</a></li>
+                    <li><a href="#sprache" aria-label="Allgemeiner Hinweis zur Sprache">Allgemeiner Hinweis zur Sprache</a></li>
                 </ul>
                 <spacer></spacer>
+            </div>
 
                 <!--h4 class="poppins-bold bg-lightblue p-15 b-0 fg-darkblue w-fit" id="angebote">Unsere Angebote</h4-->
-                <h4 class="poppins-bold w-fit pr-15 bc-darkblue" id="angebote">Unsere Angebote</h4>
-                <p class="mb-0">
-                    Wir bieten euch die Möglichkeit zum:
-                </p>
-                <ul class="inline-list">
-                    <li>Austauschen</li>
-                    <li>Kennenlernen</li>
-                    <li>Vernetzen</li>
-                    <li>Spielen</li>
-                    <li>Spaß haben</li>
-                    <li>Lesen</li>
-                    <li>Essen & Trinken</li>
-                    <li>(Neue) Freundinnen* treffen</li>
-                    <li>Community finden</li>
-                    <li>Entspannen</li>
-                </ul>
-                <p class="mt-0">
-                    ... und das alles: von Queers – für Queers!
-                </p>
+                <div class="wrapper bg-lightblue fg-darkblue hc-fg-black">
+                    <div class="container">
+                        <h4 class="poppins-bold w-fit pr-15 bc-darkblue" id="angebote">Unsere Angebote</h4>
+                        <p class="mb-0">
+                            Wir bieten euch die Möglichkeit zum:
+                        </p>
+                        <ul class="inline-list">
+                            <li>Austauschen</li>
+                            <li>Kennenlernen</li>
+                            <li>Vernetzen</li>
+                            <li>Spielen</li>
+                            <li>Spaß haben</li>
+                            <li>Lesen</li>
+                            <li>Essen & Trinken</li>
+                            <li>(Neue) Freundinnen* treffen</li>
+                            <li>Community finden</li>
+                            <li>Entspannen</li>
+                        </ul>
+                        <p class="mt-0">
+                            ... und das alles: von Queers – für Queers!
+                        </p>
 
 
-                <!--h4 class="poppins-bold bg-lightblue p-15 b-0 fg-darkblue w-fit" id="ortzeit">Orte &amp; Zeiten</h4-->
-                <h4 class="poppins-bold w-fit pr-15 bc-darkblue" id="ortzeit">Orte &amp; Zeiten</h4>
-                <p>
-                    Wir treffen uns immer <b>montags ab 18 Uhr </b>in der Bar des anyway e. V. (Kamekestr. 14, 50672 Köln) in der Nähe der Haltestelle Friesenplatz.
-                </p>
-                <p>
-                    Special Events und Änderungen kündigen wir auf <a href="https://instagram.com/lez_meet_koeln/" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a>, in unserem <a href="#kalender"><i class="fa-solid fa-calendar-days"></i>Terminkalender</a> und bei <a href="https://www.queergoingout.de/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i>queergoingout.de</a> an.
-                </p>
+                        <!--h4 class="poppins-bold bg-lightblue p-15 b-0 fg-darkblue w-fit" id="ortzeit">Orte &amp; Zeiten</h4-->
+                        <h4 class="poppins-bold w-fit pr-15 bc-darkblue" id="ortzeit">Orte &amp; Zeiten</h4>
+                        <p>
+                            Wir treffen uns immer <b>montags ab 18 Uhr </b> (oder samstags ab 16 Uhr) in der Bar des anyway e. V. (Kamekestr. 14, 50672 Köln) in der Nähe der Haltestelle Friesenplatz.
+                        </p>
+                        <p>
+                            Special Events und Änderungen kündigen wir auf <a href="https://instagram.com/lez_meet_koeln/" target="_blank" aria-label="LEZ*MEET Instagram"><i class="fa-brands fa-instagram"></i>Instagram</a>, in unserem <a href="#kalender" aria-label="LEZ*MEET Kalender"><i class="fa-solid fa-calendar-days"></i>Terminkalender</a> und bei <a href="https://www.queergoingout.de/" target="_blank" aria-label="Queergoingout.de"><i class="fa-solid fa-arrow-up-right-from-square"></i>queergoingout.de</a> an.
+                        </p>
+                    </div>
+                </div>
 
 
                 <!--h4 class="poppins-bold bg-lightorange p-15 b-0 fg-darkorange w-fit" id="mitmachen">Teilnehmen oder Mitmachen?</h4-->
-                <h4 class="poppins-bold w-fit pr-15 bc-darkorange" id="mitmachen">Teilnehmen oder Mitmachen?</h4>
-                <p>
-                    Egal ob als Besucherin* oder auch als Helferin* bist du bei uns jederzeit willkommen. Mehr Informationen findest du auf <a href="https://instagram.com/lez_meet_koeln/" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a> – bei Interesse kannst du uns einfach eine DM schicken.
-                </p>
-                <p>
-                    Unser Team besteht aktuell nur aus zwei Ehrenamtlerinnen – <b>WIR BRAUCHEN DICH!</b><br /> Egal ob du uns nur mit deinen Ideen oder auch mit deiner Zeit tatkräftig unterstützen kannst, wir freuen uns auf dich!
-                </p>
-
+                <div class="wrapper bg-lightorange fg-white hc-fg-black">
+                    <div class="container">
+                        <h4 class="poppins-bold w-fit pr-15 bc-darkorange" id="mitmachen">Teilnehmen oder Mitmachen?</h4>
+                        <p>
+                            Egal ob als Besucherin* oder auch als Helferin* bist du bei uns jederzeit willkommen. Mehr Informationen findest du auf <a href="https://instagram.com/lez_meet_koeln/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i>Instagram</a> – bei Interesse kannst du uns einfach eine DM schicken.
+                        </p>
+                        <p>
+                            Unser Team besteht aktuell nur aus zwei Ehrenamtlerinnen – <b>WIR BRAUCHEN DICH!</b><br /> Egal ob du uns nur mit deinen Ideen oder auch mit deiner Zeit tatkräftig unterstützen kannst, wir freuen uns auf dich!
+                        </p>
+                    </div>
+                </div>
 
                 <!--h4 class="poppins-bold bg-pink p-15 b-0 fg-darkrose w-fit" id="sapphic">Was heißt <span class="poppins-bold-italic">"sapphic"</span>?</h4-->
-                <h4 class="poppins-bold w-fit pr-15 bc-darkrose" id="sapphic">Was heißt <span class="poppins-bold-italic">"sapphic"</span>?</h4>
-                <blockquote class="b-left pl-15">
-                    <!--i.fa-solid.fa-circle-info-->Der Begriff spielt auf die griechische Dichterin Sappho an. Als <span class="poppins-bold-italic">"sapphic"</span> oder <span class="poppins-bold-italic">"sapphisch"</span> können sich Frauen oder feminine Personen bezeichnen, die sich zu anderen Frauen bzw. femininen Personen hingezogen fühlen. 
-                    <span class="float-right d-inline-block">Quelle: <a href="https://qlx.li/glossar" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i>Queer Lexikon</a></span>
-                </blockquote>
-                <p class="float-clear">
-                    Mit <span class="poppins-italic">"sapphic"</span> oder <span class="poppins-italic">"sapphisch"</span> meinen wir also vermutlich genau dich!
-                </p>
+                <div class="wrapper bg-pink fg-white hc-fg-black">
+                    <div class="container">
+                        <h4 class="poppins-bold w-fit pr-15 bc-darkrose" id="sapphic">Was heißt <span class="poppins-bold-italic">"sapphic"</span>?</h4>
+                        <blockquote class="b-left pl-15">
+                            <!--i.fa-solid.fa-circle-info-->Der Begriff spielt auf die griechische Dichterin Sappho an. Als <span class="poppins-bold-italic">"sapphic"</span> oder <span class="poppins-bold-italic">"sapphisch"</span> können sich Frauen oder feminine Personen bezeichnen, die sich zu anderen Frauen bzw. femininen Personen hingezogen fühlen. 
+                            <span class="float-right d-inline-block">Quelle: <a href="https://qlx.li/glossar" target="_blank" aria-label="Queer Lexikon"><i class="fa-solid fa-arrow-up-right-from-square"></i>Queer Lexikon</a></span>
+                        </blockquote>
+                        <p class="float-clear">
+                            Mit <span class="poppins-italic">"sapphic"</span> oder <span class="poppins-italic">"sapphisch"</span> meinen wir also vermutlich genau dich!
+                        </p>
 
 
-                <!--h4 class="poppins-bold bg-pink p-15 b-0 fg-darkrose w-fit" id="sprache">Allgemeiner Hinweis zur Sprache</h4-->
-                <h4 class="poppins-bold w-fit pr-15 bc-darkrose" id="sprache">Allgemeiner Hinweis zur Sprache</h4>
-                <p>
-                    Allgemein nutzen wir den Doppelpunkt zur gendergerechten Sprache, bei der expliziten Ansprache unserer Zielgruppe beschränken wir uns jedoch auf das generische Femininum mit einem ergänzten Gendersternchen, um die (trans-)femininen nichtbinären Personen explizit mit einzuschließen und das maskuline Spektrum auszuklammern.
-                    <br>
-                    Beispiel: "Politiker:innen" (allgemein) vs. "Helferinnen*" oder "Besucherin*" (Zielgruppe).
-                </p>
-                <p>
-                    Wie bei allen Aspekten unseres Angebots sind wir auch hier natürlich immer offen für Feedback und Anregungen!
-                </p>
-            </section>
+                        <!--h4 class="poppins-bold bg-pink p-15 b-0 fg-darkrose w-fit" id="sprache">Allgemeiner Hinweis zur Sprache</h4-->
+                        <h4 class="poppins-bold w-fit pr-15 bc-darkrose" id="sprache">Allgemeiner Hinweis zur Sprache</h4>
+                        <p>
+                            Allgemein nutzen wir den Doppelpunkt zur gendergerechten Sprache, bei der expliziten Ansprache unserer Zielgruppe beschränken wir uns jedoch auf das generische Femininum mit einem ergänzten Gendersternchen, um die (trans-)femininen nichtbinären Personen explizit mit einzuschließen und das maskuline Spektrum auszuklammern.
+                            <br>
+                            Beispiel: "Politiker:innen" (allgemein) vs. "Helferinnen*" oder "Besucherin*" (Zielgruppe).
+                        </p>
+                        <p>
+                            Wie bei allen Aspekten unseres Angebots sind wir auch hier natürlich immer offen für Feedback und Anregungen!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
             <spacer></spacer>
 
 
-            <section id="kalender">
+        <section id="kalender">
+            <div class="container">
                 <!--a id="kalender"></a-->
                 <h2 class="poppins-bold bg-darkorange p-15 b-0 fg-white w-fit">Terminkalender</h2>
                 <hr class="bg-darkorange fg-darkorange">
@@ -149,7 +167,8 @@
                     <tr>
                         <td>
                             <div class="date">
-                                <img src="./assets/days/Day_1.svg" alt="1. Februar" class="day">
+                                <img src="./assets/days/Day_2.svg" alt="2. Februar" class="day">
+                                <span class="weekday">Montag</span>
                                 <span class="time">18:00</span>
                             </div>
                         </td>
@@ -161,15 +180,41 @@
                     <tr>
                         <td>
                             <div class="date">
-                                <img src="./assets/days/Day_2.svg" alt="2. Februar" class="day">
-                                <span class="time">20:00</span>
+                                <img src="./assets/days/Day_9.svg" alt="9. Februar" class="day">
+                                <span class="weekday">Montag</span>
+                                <span class="time">18:00</span>
                             </div>
                         </td>
                         <td>
-                            <b>Ein anderes Event</b><br>
-                            <small>An Ort Y</small><br>
-                            <span>Mit einer längeren Beschreibung und einem Link zu Instagram.</span><br>
-                            <a href="https://instagram.com/lez_meet_koeln/"><i class="fa-brands fa-instagram"></i>Instagram</a>
+                            <b>LEZ*MEET</b><br>
+                            <small>anyway, Kamekestr. 14</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="date">
+                                <img src="./assets/days/Day_23.svg" alt="23. Februar" class="day">
+                                <span class="weekday">Montag</span>
+                                <span class="time">18:00</span>
+                            </div>
+                        </td>
+                        <td>
+                            <b>LEZ*MEET</b><br>
+                            <small>anyway, Kamekestr. 14</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="date">
+                                <img src="./assets/days/Day_28.svg" alt="28. Februar" class="day">
+                                <span class="weekday">Samstag</span>
+                                <span class="time">16:00</span>
+                            </div>
+                        </td>
+                        <td>
+                            <b>LEZ*MEET</b><br>
+                            <small>anyway, Kamekestr. 14</small><br>
+                            <span>(statt Montag, 02. März)</span>
                         </td>
                     </tr>
                     <tr class="month">
@@ -179,7 +224,8 @@
                     <tr>
                         <td>
                             <div class="date">
-                                <img src="./assets/days/Day_1.svg" alt="1. Februar" class="day">
+                                <img src="./assets/days/Day_9.svg" alt="9. März" class="day">
+                                <span class="weekday">Montag</span>
                                 <span class="time">18:00</span>
                             </div>
                         </td>
@@ -191,44 +237,76 @@
                     <tr>
                         <td>
                             <div class="date">
-                                <img src="./assets/days/Day_24.svg" alt="24. Februar" class="day">
-                                <span class="time">20:00</span>
+                                <img src="./assets/days/Day_16.svg" alt="16. März" class="day">
+                                <span class="weekday">Montag</span>
+                                <span class="time">18:00</span>
                             </div>
                         </td>
                         <td>
-                            <b>Ein anderes Event</b><br>
-                            <small>An Ort Y</small><br>
-                            <span>Mit einer längeren Beschreibung und einem Link zu Instagram.</span><br>
-                            <a href="https://instagram.com/lez_meet_koeln/"><i class="fa-brands fa-instagram"></i>Instagram</a>
+                            <b>LEZ*MEET</b><br>
+                            <small>anyway, Kamekestr. 14</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="date">
+                                <img src="./assets/days/Day_23.svg" alt="23. März" class="day">
+                                <span class="weekday">Montag</span>
+                                <span class="time">18:00</span>
+                            </div>
+                        </td>
+                        <td>
+                            <b>LEZ*MEET</b><br>
+                            <small>anyway, Kamekestr. 14</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="date">
+                                <img src="./assets/days/Day_30.svg" alt="30. März" class="day">
+                                <span class="weekday">Montag</span>
+                                <span class="time">18:00</span>
+                            </div>
+                        </td>
+                        <td>
+                            <b>LEZ*MEET</b><br>
+                            <small>anyway, Kamekestr. 14</small>
                         </td>
                     </tr>
                 </table>
                 <spacer></spacer>
-            </section>
+            </div>
+        </section>
 
 
-
-        </div>
     </main>
 
 
 
     <footer>
         <div class="footer-links bg-darkrose fg-white poppins-regular">
-            <div class="container"><a class="nav-item" href="./impressum.html">Impressum</a><a class="nav-item"
-                    href="https://instagram.com/lez_meet_koeln/" target="_blank"><i class="fa-brands fa-instagram"></i>
-                    Instagram</a><a class="nav-item" href="#">Kontakt</a></div>
+            <div class="container">
+                <a class="nav-item" href="./impressum.html">Impressum</a>
+                <a class="nav-item" href="https://instagram.com/lez_meet_koeln/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a class="nav-item" href="#">Kontakt</a>
+                <a class="nav-item button-high-contrast" href="#" aria-label="Hoher Kontrast aktivieren/deaktivieren" title="Hoher Kontrast (aktivieren/deaktivieren)"><i class="fa-solid fa-circle-half-stroke"></i> Hoher Kontrast</a>
+            </div>
         </div>
         <spacer class="bg-darkrose"></spacer>
-        <center class="bg-darkrose fg-white poppins-regular"><img src="./assets/logo-white.svg" height="300px" />
+        <center class="bg-darkrose fg-white poppins-regular"><img src="./assets/logo-white.svg" height="300px" alt="Logo: LEZ*MEET... dein neuer sapphic Treff!" />
             <br>
             <spacer></spacer>
             LEZ*MEET Köln &copy; 2026
             <spacer></spacer>
         </center>
-        <div class="footer-flag"><span class="bg-darkorange"></span><span class="bg-orange"></span><span
-                class="bg-lightorange"></span><span class="bg-white"></span><span class="bg-pink"></span><span
-                class="bg-dustypink"></span><span class="bg-darkrose"></span></div>
+        <div class="footer-flag">
+            <span class="bg-darkorange"></span>
+            <span class="bg-orange"></span>
+            <span class="bg-lightorange"></span>
+            <span class="bg-white"></span>
+            <span class="bg-pink"></span>
+            <span class="bg-dustypink"></span>
+            <span class="bg-darkrose"></span></div>
     </footer>
 </body>
 
