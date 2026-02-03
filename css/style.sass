@@ -158,7 +158,7 @@ header
   //border-bottom: 2px solid var(--pink)
   position: sticky
   top: -2.5vh
-  height: 22.5vh
+  height: max(22.5vh, 3.5em)
   padding: 0
   margin: 0
   display: flex
@@ -181,7 +181,7 @@ header .header-inner
   text-align: justify
 
 header img.header-logo
-  height: 18vh //150px
+  height: max(18vh, 2em) //150px
   padding: 0
   margin: 0
   margin-bottom: 1vh
@@ -189,7 +189,7 @@ header img.header-logo
   
   
 header nav
-  height: 20vh
+  height: max(20vh, 2.5em)
   display: flex
   //align-content: end
   align-items: end
@@ -204,12 +204,12 @@ header.shrunk
 
 @media only screen and (max-width: 530px)
   header
-    height: 10vh !important
+    height: max(10vh, 2.5em) !important
     top: 0 !important
     img.header-logo
-      height: 8vh
+      height: max(8vh, 2em)
     nav
-      height: 10vh
+      height: max(10vh, 2.5em)
   
 a.nav-item
   display: block
@@ -369,7 +369,7 @@ main
         display: inline-block
         height: 0.75em
         width: 0.75em
-        background: url("./assets/asterisk-with-colors.svg") no-repeat center center
+        background: url("../assets/asterisk-with-colors.svg") no-repeat center center
         margin: 0 1ex
 
   table.calendar

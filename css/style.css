@@ -325,7 +325,7 @@ body {
 header {
   position: sticky;
   top: -2.5vh;
-  height: 22.5vh;
+  height: max(22.5vh, 3.5em);
   padding: 0;
   margin: 0;
   display: flex;
@@ -350,7 +350,7 @@ header .header-inner {
 }
 
 header img.header-logo {
-  height: 18vh;
+  height: max(18vh, 2em);
   padding: 0;
   margin: 0;
   margin-bottom: 1vh;
@@ -358,7 +358,7 @@ header img.header-logo {
 }
 
 header nav {
-  height: 20vh;
+  height: max(20vh, 2.5em);
   display: flex;
   align-items: end;
   transition: 0.2s;
@@ -376,14 +376,14 @@ header.shrunk nav {
 
 @media only screen and (max-width: 530px) {
   header {
-    height: 10vh !important;
+    height: max(10vh, 2.5em) !important;
     top: 0 !important;
   }
   header img.header-logo {
-    height: 8vh;
+    height: max(8vh, 2em);
   }
   header nav {
-    height: 10vh;
+    height: max(10vh, 2.5em);
   }
 }
 a.nav-item {
@@ -599,7 +599,7 @@ main ul.inline-list li::before {
   display: inline-block;
   height: 0.75em;
   width: 0.75em;
-  background: url("./assets/asterisk-with-colors.svg") no-repeat center center;
+  background: url("../assets/asterisk-with-colors.svg") no-repeat center center;
   margin: 0 1ex;
 }
 main table.calendar {
