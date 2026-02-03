@@ -572,6 +572,9 @@ spacer.large {
 body.high-contrast .hc-fg-black {
   color: var(--black) !important;
 }
+body.high-contrast .hc-bg-black {
+  background-color: var(--black) !important;
+}
 body.high-contrast .button-high-contrast {
   background-color: var(--white) !important;
   color: var(--black) !important;
@@ -765,6 +768,19 @@ main div.blockquote-container span.quotationmarks {
   font-size: 8ch;
   text-align: left;
   color: var(--darkrose);
+}
+main .calender-header {
+  position: sticky;
+  top: var(--header-offset);
+  z-index: 500;
+}
+@media only screen and (max-width: 600px) {
+  main .calender-header {
+    position: inherit;
+  }
+}
+main .calender-header h2 i {
+  font-size: 1.5em;
 }
 main table.calendar {
   width: 100%;

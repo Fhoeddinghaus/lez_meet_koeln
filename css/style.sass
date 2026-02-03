@@ -321,6 +321,9 @@ body.high-contrast
   // enabled high contrast mode
   .hc-fg-black
     color: var(--black) !important
+  
+  .hc-bg-black
+    background-color: var(--black) !important
 
   .button-high-contrast
     background-color: var(--white) !important
@@ -500,6 +503,16 @@ main
       font-size: 8ch
       text-align: left
       color: var(--darkrose)
+
+  .calender-header 
+    position: sticky
+    top: var(--header-offset)
+    z-index: 500
+    @media only screen and ( max-width: 600px)
+      position: inherit
+    h2 i
+      font-size: 1.5em
+      //vertical-align: middle
 
   table.calendar
     width: 100%
