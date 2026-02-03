@@ -331,6 +331,7 @@ header {
   display: flex;
   align-items: end;
   transition: 0.2s;
+  z-index: 1000;
 }
 
 header .header-inner {
@@ -347,14 +348,19 @@ header .header-inner {
   padding: 0 var(--content-padding);
   margin: 0 auto;
   text-align: justify;
+  position: relative;
 }
 
-header img.header-logo {
+header img.header-logo, header img.header-logo-small {
   height: max(18vh, 2em);
   padding: 0;
   margin: 0;
   margin-bottom: 1vh;
   transition: 0.2s;
+}
+
+header img.header-logo-small {
+  display: none;
 }
 
 header nav {
@@ -374,16 +380,37 @@ header.shrunk nav {
   height: max(10vh, 2.5em);
 }
 
-@media only screen and (max-width: 530px) {
+@media only screen and (max-width: 585px) {
   header {
-    height: max(10vh, 2.5em) !important;
+    height: max(17.5vh, 3.5em) !important;
     top: 0 !important;
   }
   header img.header-logo {
-    height: max(8vh, 2em);
+    height: max(13vh, 2em) !important;
+  }
+  header nav {
+    height: max(15vh, 2.5em);
+  }
+}
+@media only screen and (max-width: 520px) {
+  header {
+    height: max(12.5vh, 3.5em) !important;
+    top: 0 !important;
+  }
+  header img.header-logo {
+    height: max(8vh, 2em) !important;
   }
   header nav {
     height: max(10vh, 2.5em);
+  }
+}
+@media only screen and (max-width: 455px) {
+  header img.header-logo {
+    display: none;
+  }
+  header img.header-logo-small {
+    display: block !important;
+    height: 12vw;
   }
 }
 a.nav-item {
@@ -395,10 +422,10 @@ a.nav-item {
   min-height: calc(10vh - 30px);
   cursor: pointer;
 }
-a.nav-item:hover:not(.no-hover), a.nav-item.active {
+a.nav-item:hover:not(.no-hover), a.nav-item.active, a.nav-item:focus:not(.no-hover) {
   background-color: var(--pink);
 }
-a.nav-item:hover:not(.no-hover).nav-item-darkorange, a.nav-item.active.nav-item-darkorange {
+a.nav-item:hover:not(.no-hover).nav-item-darkorange, a.nav-item.active.nav-item-darkorange, a.nav-item:focus:not(.no-hover).nav-item-darkorange {
   background-color: var(--darkorange) !important;
 }
 
@@ -452,6 +479,10 @@ spacer.large {
   padding-top: 0 !important;
 }
 
+.pl-0 {
+  padding-left: 0 !important;
+}
+
 .pl-15 {
   padding-left: 15px !important;
 }
@@ -464,9 +495,22 @@ spacer.large {
   padding: 15px !important;
 }
 
+.p-content {
+  padding: var(--content-padding) !important;
+}
+
+.ph-content {
+  padding-left: var(--content-padding) !important;
+  padding-right: var(--content-padding) !important;
+}
+
 .ph-15 {
   padding-left: 15px !important;
   padding-right: 15px !important;
+}
+
+.p-0 {
+  padding: 0 !important;
 }
 
 .d-inline {
@@ -487,6 +531,14 @@ spacer.large {
 
 .mt-0 {
   margin-top: 0;
+}
+
+.ml-0 {
+  margin-left: 0 !important;
+}
+
+.m-0 {
+  margin: 0 !important;
 }
 
 .b-left {
@@ -510,7 +562,7 @@ spacer.large {
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .text-left {
@@ -523,6 +575,19 @@ body.high-contrast .hc-fg-black {
 body.high-contrast .button-high-contrast {
   background-color: var(--white) !important;
   color: var(--black) !important;
+}
+body.high-contrast div.blockquote-container {
+  grid-template-columns: 9ch 1fr;
+  gap: var(--small-content-padding);
+}
+@media only screen and (max-width: 600px) {
+  body.high-contrast div.blockquote-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 7ch auto;
+  }
+}
+body.high-contrast div.blockquote-container span.quotationmarks {
+  margin-top: 0;
 }
 
 @media (prefers-contrast: more) {
@@ -601,6 +666,105 @@ main ul.inline-list li::before {
   width: 0.75em;
   background: url("../assets/asterisk-with-colors.svg") no-repeat center center;
   margin: 0 1ex;
+}
+main ul.list-grid {
+  display: grid;
+  margin: 0;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--content-padding);
+  text-align: center;
+}
+@media screen and (max-width: 700px) {
+  main ul.list-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 420px) {
+  main ul.list-grid {
+    grid-template-columns: 1fr;
+  }
+}
+main ul.list-grid li {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: var(--darkblue);
+  color: var(--white);
+  border-radius: var(--small-content-padding);
+  box-shadow: 0 2px 6px var(--darkblue);
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.2s, transform 0.2s;
+  /* &::before
+  * content: ''
+  * display: block
+  * position: absolute
+  * height: 100%
+  * width: 100%
+  * opacity: 0.8
+  * transition: opacity 0.2s
+  * border-radius: var(--small-content-padding)
+  * background: no-repeat center center
+  * background-size: cover */
+  /* &:hover::before, &:has(a:focus)::before
+  * opacity: 0.1 */
+  /* &.item-ortzeit::before
+  * background-image: url("https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") */
+}
+main ul.list-grid li a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  padding: var(--small-content-padding);
+  vertical-align: middle;
+}
+main ul.list-grid li a span.card-title {
+  display: inline-block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+main ul.list-grid li:hover, main ul.list-grid li:has(a:focus) {
+  box-shadow: 0 4px 12px var(--darkblue);
+  transform: translateY(-2px);
+}
+main .ueberuns-nav-container::before, main .ueberuns-nav-container::after {
+  font-family: "Freestyle Script W02 Bold";
+  position: absolute;
+  font-size: 15rem;
+  color: var(--lightorange);
+}
+main .ueberuns-nav-container::before {
+  content: "?";
+  top: -5.5rem;
+  left: 0;
+}
+main .ueberuns-nav-container::after {
+  content: "!";
+  right: 0.1ch;
+  bottom: -6.5rem;
+  color: var(--pink);
+}
+main div.blockquote-container {
+  display: grid;
+  grid-template-columns: 7ch 1fr;
+  gap: var(--small-content-padding);
+}
+@media only screen and (max-width: 600px) {
+  main div.blockquote-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2.25ch auto;
+  }
+}
+main div.blockquote-container span.quotationmarks {
+  display: inline-block;
+  margin-top: -0.5ex;
+  font-size: 8ch;
+  text-align: left;
+  color: var(--darkrose);
 }
 main table.calendar {
   width: 100%;
