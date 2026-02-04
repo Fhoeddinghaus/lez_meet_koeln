@@ -1,0 +1,110 @@
+.january, .april, .july, .october {
+  background-color: var(--pink);
+}
+
+.february, .may, .august, .november {
+  background-color: var(--lightorange);
+}
+
+.march, .june, .september, .december {
+  background-color: var(--darkblue);
+}
+
+.text-1_2 {
+  font-size: 1.2rem;
+}
+
+a[id], h1[id], h2[id], h3[id], h4[id], h5[id], h6[id], section[id] {
+  scroll-margin-top: calc(var(--header-offset) + 4rem) !important;
+}
+
+subheader {
+  display: block;
+  position: sticky;
+  top: var(--header-offset);
+  width: 100%;
+  background: var(--darkrose);
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+subheader .container.g-3x1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+}
+subheader .container.g-3x1 .month-nav-item {
+  padding: var(--small-content-padding);
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+subheader .container.g-3x1 .month-nav-item:hover {
+  opacity: 0.8;
+}
+
+.container.g-8x1 {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto;
+  gap: var(--content-padding);
+}
+.container.g-8x1 .gc-1v6v1 {
+  grid-column: 2/span 6;
+  grid-row: 1/span 1;
+}
+
+.container.month {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-flow: column;
+  gap: var(--content-padding);
+}
+.container.month.month-2 {
+  grid-template-rows: 1fr 1fr;
+}
+.container.month.month-2 h2 {
+  grid-row: 1/span 2;
+}
+.container.month.month-3 {
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.container.month.month-3 h2 {
+  grid-row: 1/span 3;
+}
+.container.month h2 {
+  font-size: 3rem;
+  writing-mode: sideways-lr;
+  text-orientation: mixed;
+  grid-column: 1/span 2;
+  text-align: center;
+}
+.container.month .event {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--content-padding);
+}
+.container.month .event .date {
+  grid-column: 1/span 1;
+  text-align: center;
+}
+.container.month .event .date img.day {
+  width: 7ch;
+  margin: 0 auto;
+  filter: invert(1);
+}
+.container.month .event .date span.time::before {
+  content: "\f017";
+  font-family: "FontAwesome";
+  padding-right: 0.5ch;
+}
+.container.month .event .event-text {
+  grid-column: 2/span 2;
+  align-content: center;
+}
+
+body.high-contrast .hc-fg-black img.day {
+  filter: invert(0) !important;
+}/*# sourceMappingURL=calendar.css.map */

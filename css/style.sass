@@ -1,112 +1,3 @@
-// POPPINS START
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
-
-.poppins-thin 
-  font-family: "Poppins", sans-serif
-  font-weight: 100
-  font-style: normal
-
-.poppins-extralight
-  font-family: "Poppins", sans-serif
-  font-weight: 200
-  font-style: normal
-
-.poppins-light 
-  font-family: "Poppins", sans-serif
-  font-weight: 300
-  font-style: normal
-
-.poppins-regular
-  font-family: "Poppins", sans-serif
-  font-weight: 400
-  font-style: normal
-
-.poppins-medium
-  font-family: "Poppins", sans-serif
-  font-weight: 500
-  font-style: normal
-
-.poppins-semibold
-  font-family: "Poppins", sans-serif
-  font-weight: 600
-  font-style: normal
-
-.poppins-bold
-  font-family: "Poppins", sans-serif
-  font-weight: 700
-  font-style: normal
-
-.poppins-extrabold
-  font-family: "Poppins", sans-serif
-  font-weight: 800
-  font-style: normal
-
-.poppins-black
-  font-family: "Poppins", sans-serif
-  font-weight: 900
-  font-style: normal
-
-.poppins-thin-italic
-  font-family: "Poppins", sans-serif
-  font-weight: 100
-  font-style: italic
-
-.poppins-extralight-italic
-  font-family: "Poppins", sans-serif
-  font-weight: 200
-  font-style: italic
-
-.poppins-light-italic
-  font-family: "Poppins", sans-serif
-  font-weight: 300
-  font-style: italic
-
-.poppins-regular-italic
-  font-family: "Poppins", sans-serif
-  font-weight: 400
-  font-style: italic
-
-.poppins-medium-italic
-  font-family: "Poppins", sans-serif
-  font-weight: 500
-  font-style: italic
-
-.poppins-semibold-italic
-  font-family: "Poppins", sans-serif
-  font-weight: 600
-  font-style: italic
-
-.poppins-bold-italic
-  font-family: "Poppins", sans-serif
-  font-weight: 700
-  font-style: italic
-
-.poppins-extrabold-italic
-  font-family: "Poppins", sans-serif
-  font-weight: 800
-  font-style: italic
-
-.poppins-black-italic
-  font-family: "Poppins", sans-serif
-  font-weight: 900
-  font-style: italic
-
-  
-// END POPPINS
-// FREESTYLE SCRIPT START
-@import url(https://db.onlinewebfonts.com/c/8889ea7f2c824d0f17a4446fc6f72e18?family=Freestyle+Script+W02+Bold)
-
-.fss
-  font-family: "Freestyle Script W02 Bold"
-  font-size: 1.5em
-// FREESTYLE SCRIPT END
-
-// BOOTSTRAP ICONS
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css")
-
-// FONTAWESOME ICONS
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css")
-
 // COLORS & VARS
 :root
   --darkorange: #D52D00
@@ -131,6 +22,7 @@
 
   --content-padding: 30px
   --small-content-padding: 10px
+  --container-width: 1000px
   --header-offset: 20vh
 
   scroll-behavior: smooth
@@ -139,6 +31,8 @@ body
   //background-color: var(--darkrose)
   //color: var(--white)
 
+$breakpoint_three_columns: "860px"
+$breakpoint_single_column: "700px"
 $colors: darkorange, orange, lightorange, tintedorange, pink, tintedpink, dustypink, darkrose, lightblue, tintedblue, darkblue, lightgrey, darkgrey, white, black
 
 @each $color in $colors
@@ -171,16 +65,9 @@ header .header-inner
   position: sticky
   top: 0
   display: flex
-  width: 800px
+  width: var(--container-width)
   align-items: center
   justify-content: space-between
-
-.container
-  max-width: 800px
-  padding: 0 var(--content-padding)
-  margin: 0 auto
-  text-align: justify
-  position: relative
 
 header img.header-logo, header img.header-logo-small
   height: max(18vh, 2em) //150px
@@ -294,12 +181,18 @@ spacer.large
   display: inline-block
 .va-middle
   vertical-align: middle
+.va-top
+  vertical-align: top
+.fs-1_5em
+  font-size: 1.5em
 .mb-0
   margin-bottom: 0
 .mt-0
   margin-top: 0
 .ml-0
   margin-left: 0 !important
+.ml-2em
+  margin-left: 2em !important
 .m-0
   margin: 0 !important
 .b-left
@@ -316,6 +209,8 @@ spacer.large
   text-align: center !important
 .text-left
   text-align: left
+.text-right
+  text-align: right !important
 
 body.high-contrast
   // enabled high contrast mode
@@ -329,14 +224,15 @@ body.high-contrast
     background-color: var(--white) !important
     color: var(--black) !important
   
-  div.blockquote-container
-    grid-template-columns: 9ch 1fr
-    gap: var(--small-content-padding)
-    @media only screen and (max-width: 600px)
-      grid-template-columns: 1fr
-      grid-template-rows: 7ch auto
-    span.quotationmarks
-      margin-top: 0
+  blockquote.bg-quotation-darkrose::before
+      content: ''
+      width: 3em
+      height: 3em
+      background: url("../assets/quotationmarks-darkrose.svg") no-repeat center center
+      z-index: 0
+      position: absolute
+      top: -2em
+      left: -3em
 
 @media (prefers-contrast: more)
   body
@@ -346,14 +242,14 @@ body.high-contrast
 
 
 hero
-  background-image: url("https://images.unsplash.com/photo-1621783038661-f6c5af8aac1d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+  background-image: url("../assets/pexels-elly-fairytale-4834142.jpg")
   background-size: cover
-  background-position: top
+  background-position: center center
   background-repeat: no-repeat
   //background-attachment: fixed
   display: inline-block
   width: 100%
-  height: 77.5vh
+  height: 60vh
   padding: 0
   margin: 0
   position: relative
@@ -367,20 +263,25 @@ hero
     width: 100%
     h1
       width: 90%
+      font-size: 2.75rem
   
+
+// MAIN CONTENT
 main
   min-height: 80vh
   //padding-top: 1vh
   
   h1, h2, h3, h3, h4, h5, h6
-    border-bottom: 2px solid var(--darkrose)
+    //border-bottom: 2px solid var(--darkrose)
     margin-bottom: 0px
+    text-align: left
     
   a[id],h1[id],h2[id],h3[id],h4[id],h5[id],h6[id], section[id]
     scroll-margin-top: var(--header-offset)
   
   div.wrapper
     padding: var(--small-content-padding) 0
+    position: relative
   a
     color: var(--darkrose)
     display: inline-block
@@ -393,8 +294,8 @@ main
     background-color: var(--darkrose)
 
   ul.inline-list 
-    //padding: 0
-    margin: 0
+    padding: 0
+    //margin: 0
     font-size: 0
     text-align: left
     li
@@ -416,144 +317,249 @@ main
         background: url("../assets/asterisk-with-colors.svg") no-repeat center center
         margin: 0 1ex
 
-  ul.list-grid
-    display: grid
-    margin: 0
-    grid-template-columns: 1fr 1fr 1fr
-    gap: var(--content-padding)
-    text-align: center
-    @media screen and (max-width: 700px)
-      grid-template-columns: 1fr 1fr
-    @media screen and ( max-width:  420px)
-      grid-template-columns: 1fr
-      
-    li
-      display: block
-      width: 100%
-      height: 100%
-      padding: 0
-      //border: 2px solid var(--darkblue)
-      background: var(--darkblue)
-      color: var(--white)
-      border-radius: var(--small-content-padding)
-      box-shadow: 0 2px 6px var(--darkblue)
-      position: relative
-      z-index: 1
-      transition: box-shadow 0.2s, transform 0.2s
-      a
-        color: inherit
-        text-decoration: none
-        display: block
-        box-sizing: border-box
-        height: 100%
-        padding: var(--small-content-padding)
-        vertical-align: middle
-        span.card-title
-          // vertically center text inside anchor
-          display: inline-block
-          position: relative
-          top: 50%
-          transform: translateY(-50%)
-      &:hover, &:has(a:focus)
-        box-shadow: 0 4px 12px var(--darkblue)
-        transform: translateY(-2px)
-      
-      /* &::before
-        content: ''
-        display: block
-        position: absolute
-        height: 100%
-        width: 100%
-        opacity: 0.8
-        transition: opacity 0.2s
-        border-radius: var(--small-content-padding)
-        background: no-repeat center center
-        background-size: cover */
-      /* &:hover::before, &:has(a:focus)::before
-        opacity: 0.1 */
-      /* &.item-ortzeit::before
-        background-image: url("https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") */
-  .ueberuns-nav-container::before, .ueberuns-nav-container::after
-    font-family: 'Freestyle Script W02 Bold'
+.wrapper.bg-asterisk-pink::before
+    content: ''
+    display: block
     position: absolute
-    font-size: 15rem
-    color: var(--lightorange)
-    //opacity: 0.9
-  .ueberuns-nav-container::before
-    content: '?'
-    top: -5.5rem
+    top: 0
     left: 0
-  .ueberuns-nav-container::after
-    content: '!'
-    right: 0.1ch
-    bottom: -6.5rem
-    color: var(--pink)
+    background: url("../assets/asterisk-tintedpink-rotated.svg") no-repeat
+    height: 100%
+    width: 25vw
+    background-size: 300%
+    background-position: 92% 35%
+    z-index: 1
 
-  div.blockquote-container
+.wrapper.bg-asterisk-orange::before
+    content: ''
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    background: url("../assets/asterisk-tintedorange-rotated.svg") no-repeat
+    height: 100%
+    width: 25vw
+    background-size: 300%
+    background-position: 92% 35%
+    z-index: 1
+
+.container
+  max-width: var(--container-width)
+  padding: 0 var(--content-padding)
+  margin: 0 auto
+  text-align: justify
+  position: relative
+  //overflow: hidden
+
+  &.bg-asterisk-pink::before
+    content: ''
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    background: url("../assets/asterisk-tintedpink-rotated.svg") no-repeat
+    height: 100%
+    width: 25vw
+    background-size: 300%
+    background-position: 92% 35%
+    z-index: 0
+  &.bg-asterisk-orange::before
+    content: ''
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    background: url("../assets/asterisk-tintedorange-rotated.svg") no-repeat
+    height: 100%
+    width: 25vw
+    background-size: 300%
+    background-position: 92% 35%
+    z-index: 0
+
+  &.g-4x2
     display: grid
-    grid-template-columns: 7ch 1fr
-    gap: var(--small-content-padding)
-    @media only screen and (max-width: 600px)
-      grid-template-columns: 1fr
-      grid-template-rows: 2.25ch auto
-      
-    span.quotationmarks
-      display: inline-block
-      margin-top: -0.5ex
-      font-size: 8ch
-      text-align: left
-      color: var(--darkrose)
-
-  .calender-header 
-    position: sticky
-    top: var(--header-offset)
-    z-index: 500
-    @media only screen and ( max-width: 600px)
-      position: inherit
-    h2 i
-      font-size: 1.5em
-      //vertical-align: middle
-
-  table.calendar
-    width: 100%
-    border-spacing: 0
-    text-align: left
-    tr
-      td
+    grid-template-columns: repeat(4, 1fr)
+    grid-template-rows: repeat(2, auto)
+    gap: var(--content-padding)
+    @media only screen and (max-width: #{$breakpoint_three_columns})
+      grid-template-columns: repeat(3, 1fr)
+    @media only screen and (max-width: #{$breakpoint_single_column})
+      grid-template-columns: repeat(1, 1fr) !important
+    h2
+      font-size: 3rem
+      margin: 0
+      @media only screen and (max-width: #{$breakpoint_single_column})
+        font-size: 2.5rem
+    &.gc-1v3
+      h2
+        grid-column: 1 / span 1
+        grid-row: 1 / span 1
         padding: var(--content-padding)
-        //border-bottom: 2px solid var(--darkrose)
-        //border-top: 2px solid var(--darkblue)
-        vertical-align: top
-
-        div.date
+        z-index: 1
+        @media only screen and (max-width: #{$breakpoint_three_columns})
+          grid-column: 1 / span 1
+          grid-row: 1 / span 2
+        @media only screen and (max-width: #{$breakpoint_single_column})
+          grid-column: 1 / span 1
+          grid-row: 1 / span 1
+          padding-bottom: 0
+      div.gc-3x2
+        grid-column: 2 / span 3
+        grid-row: 1 / span 2
+        padding: var(--content-padding)
+        z-index: 1
+        @media only screen and (max-width: #{$breakpoint_three_columns})
+          grid-column: 2 / span 2
+          grid-row: 1 / span 2
+        @media only screen and (max-width: #{$breakpoint_single_column})
+          grid-column: 1 / span 1
+          grid-row: 2 / span 1
+          padding-top: 0
+    &.gc-2v2
+      div.gc-2x2-l
+        padding: var(--content-padding)
+        grid-column: 1 / span 2
+        grid-row: 1 / span 2
+        @media only screen and (max-width: #{$breakpoint_three_columns})
+          grid-column: 1 / span 3
+          grid-row: 1 / span 1
           display: grid
-          grid-template-rows: auto auto
-          grid-template-columns: 1fr
-          text-align: center
-        img.day
-          width: 7ch
-          margin: 0 auto
-        span.time
-          //font-weight: 500
-          &::before
-            content: '\f017'
-            font-family: 'FontAwesome'
-            padding-right: 0.5ch
-      &.month
-        td
-          padding-top: var(--small-content-padding) !important
-          padding-bottom: var(--small-content-padding) !important
-          text-align: center
-          //font-weight: 700
-          border-top: none
-          border-bottom: 2px solid var(--darkblue)
-          &:first-of-type
-            background-color: var(--darkblue)
-            color: var(--white)
+          grid-template-columns: 1fr 1fr
+          gap: var(--content-padding)
+          div
+            grid-column: 2 / span 1
+        @media only screen and (max-width: #{$breakpoint_single_column})
+          grid-column: 1 / span 1
+          grid-row: 1 / span 1
+          display: block
+      div.gc-2x2-r
+        padding: var(--content-padding)
+        grid-column: 3 / span 2
+        grid-row: 1 / span 2
+        @media only screen and (max-width: #{$breakpoint_three_columns})
+          grid-column: 1 / span 3
+          grid-row: 2 / span 1
+          display: grid
+          grid-template-columns: 1fr 1fr
+          gap: var(--content-padding)
+          div
+            grid-column: 2 / span 1
+        @media only screen and (max-width: #{$breakpoint_single_column})
+          grid-column: 1 / span 1
+          grid-row: 2 / span 1
+          display: block
+      
+  &.g-4x3
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-template-rows: repeat(3, auto)
+    gap: var(--content-padding)
+    @media only screen and (max-width: #{$breakpoint_three_columns})
+      grid-template-columns: repeat(3, 1fr)
+    @media only screen and (max-width: #{$breakpoint_single_column})
+      grid-template-columns: repeat(1, 1fr) !important
+    h2
+      font-size: 3rem
+      margin: 0
+      @media only screen and (max-width: #{$breakpoint_single_column})
+        font-size: 2.5rem
+    &.gc-2x2v2x3v2x1
+      div.gc-2x2
+        grid-column: 1 / span 2
+        grid-row: 1 / span 2
+        padding: var(--content-padding)
+        @media only screen and (max-width: #{$breakpoint_three_columns})
+          grid-column: 1 / span 3
+          grid-row: 1 / span 1
+          display: grid
+          grid-template-columns: 1fr 1fr
+          gap: var(--content-padding)
+          div
+            grid-column: 2 / span 1
+        @media only screen and (max-width: #{$breakpoint_single_column})
+          grid-column: 1 / span 1
+          grid-row: 1 / span 1
+          display: block
+      div.gc-2x3
+        grid-column: 3 / span 2
+        grid-row: 1 / span 3
+        padding: var(--content-padding)
+        position: relative
+        z-index: 1
+        @media only screen and (max-width: #{$breakpoint_three_columns})
+          grid-column: 1 / span 3
+          grid-row: 2 / span 1
+          display: grid
+          grid-template-columns: 1fr 1fr
+          gap: var(--content-padding)
+          div
+            grid-column: 2 / span 1
+        @media only screen and (max-width: #{$breakpoint_single_column})
+          grid-column: 1 / span 1
+          grid-row: 2 / span 1
+          display: block
+        &.bg-asterisk-pink::before
+          content: ''
+          display: block
+          position: absolute
+          bottom: 0
+          right: 0
+          background: url("../assets/asterisk-tintedpink-rotated.svg") no-repeat
+          height: 50%
+          width: 100%
+          background-size: 150%
+          background-position: 10% 10%
+          z-index: -1
+      div.gc-2x1
+        grid-column: 1 / span 2
+        grid-row: 3 / span 1
+        padding: var(--content-padding)
+        display: grid
+        grid-template-columns: 1fr 1fr
+        @media only screen and (max-width: #{$breakpoint_three_columns})
+          grid-column: 1 / span 3
+          grid-row: 3 / span 1
+        @media only screen and (max-width: #{$breakpoint_single_column})
+          grid-column: 1 / span 1
+          grid-row: 3 / span 1
+        
+
+.button-darkorange
+  background: var(--darkorange)
+  padding: var(--small-content-padding)
+  padding-right: var(--content-padding)
+  border-radius: var(--small-content-padding)
+  text-decoration: none
+
+blockquote.bg-quotation-darkrose
+  position: relative
+  div 
+    position: relative
+    z-index: 1
+  &::before
+    content: ''
+    width: 6em
+    height: 6em
+    background: url("../assets/quotationmarks-darkrose.svg") no-repeat center center
+    z-index: 0
+    position: absolute
+    top: -2em
+    left: -2.5em
+
+ul
+  li.marker-clock::marker
+    content: '\f017'
+    font-family: 'FontAwesome'
+    //padding-right: 0.5ch
 
 
-  
-  
+
+
+
+
+
+
+
 footer
   .footer-flag
     span
@@ -562,7 +568,7 @@ footer
       width: 100%
   .footer-links div
     display: grid
-    grid-template-columns: 1fr 1fr 1fr
+    grid-template-columns: 1fr 1fr 1fr 1fr
     a.nav-item
       height: auto
       min-height: auto
@@ -572,4 +578,4 @@ footer
   footer
     .footer-links div
       grid-template-columns: 1fr
-      grid-template-rows: 1fr 1fr 1fr
+      grid-template-rows: 1fr 1fr 1fr 1fr
