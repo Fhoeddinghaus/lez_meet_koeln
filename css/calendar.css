@@ -207,8 +207,9 @@ subheader .container.g-3x1 .month-nav-item:hover {
 }
 .container.month .event .date span.time::before {
   content: "\f017";
-  font-family: "FontAwesome";
+  font-family: "Font Awesome 7 Free";
   padding-right: 0.5ch;
+  font-weight: 900;
 }
 .container.month .event .event-text {
   grid-column: 2/span 2;
