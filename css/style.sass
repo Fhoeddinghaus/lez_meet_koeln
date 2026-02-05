@@ -1,4 +1,8 @@
 // COLORS & VARS
+$breakpoint_three_columns: "860px"
+$breakpoint_single_column: "700px"
+$breakpoint_xxs: "410px"
+
 :root
   --darkorange: #D52D00
   --orange: #EF7627
@@ -23,7 +27,16 @@
   --content-padding: 30px
   --small-content-padding: 10px
   --container-width: 1000px
-  --header-offset: 20vh
+  --header-offset-min: 10vh
+  --header-offset-max: 20vh
+  --header-offset: var(--header-offset-max)
+  @media only screen and (max-width: 585px)
+    --header-offset-max: max(15vh, 2.5em)
+  @media only screen and (max-width: 520px)
+    --header-offset-max: max(10vh, 2.5em)
+  @media only screen and (max-width: #{$breakpoint_xxs})
+    --content-padding: 15px
+    --header-offset-max: 10vh
 
   scroll-behavior: smooth
   
@@ -31,8 +44,7 @@ body
   //background-color: var(--darkrose)
   //color: var(--white)
 
-$breakpoint_three_columns: "860px"
-$breakpoint_single_column: "700px"
+
 $colors: darkorange, orange, lightorange, tintedorange, pink, tintedpink, dustypink, darkrose, lightblue, tintedblue, darkblue, lightgrey, darkgrey, white, black
 
 @each $color in $colors
@@ -68,6 +80,9 @@ header .header-inner
   width: var(--container-width)
   align-items: center
   justify-content: space-between
+  @media only screen and (max-width: #{$breakpoint_xxs})
+    &.container
+      padding: 0 var(--small-content-padding)
 
 header img.header-logo, header img.header-logo-small
   height: max(18vh, 2em) //150px
@@ -110,7 +125,7 @@ header.shrunk
       height: max(8vh, 2em) !important
     nav
       height: max(10vh, 2.5em)
-@media only screen and (max-width: 455px)
+@media only screen and (max-width: 460px)
   header img.header-logo
     display: none
   header img.header-logo-small
@@ -211,6 +226,8 @@ spacer.large
   text-align: left
 .text-right
   text-align: right !important
+.text-justify
+  text-align: justify !important
 
 body.high-contrast
   // enabled high contrast mode
@@ -224,13 +241,10 @@ body.high-contrast
     background-color: var(--white) !important
     color: var(--black) !important
   
-  blockquote.bg-quotation-darkrose::before
+  blockquote.bg-quotation-darkrose::before, blockquote.bg-quotation-pink::before
       content: ''
       width: 3em
       height: 3em
-      background: url("../assets/quotationmarks-darkrose.svg") no-repeat center center
-      z-index: 0
-      position: absolute
       top: -2em
       left: -3em
 
@@ -275,6 +289,11 @@ main
     //border-bottom: 2px solid var(--darkrose)
     margin-bottom: 0px
     text-align: left
+    line-height: 1em
+
+  @media only screen and (max-width: #{$breakpoint_single_column})
+    .hide-single-column
+      display: none !important
     
   a[id],h1[id],h2[id],h3[id],h4[id],h5[id],h6[id], section[id]
     scroll-margin-top: var(--header-offset)
@@ -325,7 +344,7 @@ main
     left: 0
     background: url("../assets/asterisk-tintedpink-rotated.svg") no-repeat
     height: 100%
-    width: 25vw
+    width: calc(0.25 * var(--container-width))
     background-size: 300%
     background-position: 92% 35%
     z-index: 1
@@ -338,7 +357,7 @@ main
     left: 0
     background: url("../assets/asterisk-tintedorange-rotated.svg") no-repeat
     height: 100%
-    width: 25vw
+    width: calc(0.25 * var(--container-width))
     background-size: 300%
     background-position: 92% 35%
     z-index: 1
@@ -347,7 +366,7 @@ main
   max-width: var(--container-width)
   padding: 0 var(--content-padding)
   margin: 0 auto
-  text-align: justify
+  //text-align: justify
   position: relative
   //overflow: hidden
 
@@ -531,7 +550,7 @@ main
   border-radius: var(--small-content-padding)
   text-decoration: none
 
-blockquote.bg-quotation-darkrose
+blockquote.bg-quotation-darkrose, blockquote.bg-quotation-pink
   position: relative
   div 
     position: relative
@@ -545,6 +564,8 @@ blockquote.bg-quotation-darkrose
     position: absolute
     top: -2em
     left: -2.5em
+  &.bg-quotation-pink::before
+    background: url("../assets/quotationmarks-pink.svg") no-repeat center center
 
 ul
   li.marker-clock::marker

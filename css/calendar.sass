@@ -1,3 +1,9 @@
+// VARS
+$breakpoint_three_columns: "860px"
+$breakpoint_single_column: "700px"
+//$breakpoint_xxs: "410px"
+$breakpoint_xxs: "530px"
+
 // MONTHS
 // color-order: pink, lightorange, darkblue
 .january, .april, .july, .october
@@ -45,19 +51,65 @@ subheader
     .gc-1v6v1
         grid-column: 2 / span 6
         grid-row: 1 / span 1
+        @media only screen and (max-width: $breakpoint_single_column)
+            grid-column: 1 / span 8
 
 .container.month
     display: grid
     grid-template-columns: repeat(8, 1fr)
+    @media only screen and (max-width: $breakpoint_three_columns)
+        grid-template-columns: repeat(4, 1fr)
+    @media only screen and (max-width: $breakpoint_xxs)
+        grid-template-columns: repeat(3, 1fr)
     grid-auto-flow: column
+    &.month-single
+        grid-template-rows: 1fr
+        grid-template-columns: repeat(4, 1fr)
+        @media only screen and (max-width: $breakpoint_xxs)
+            grid-template-columns: repeat(3, 1fr)
+        h2
+            grid-row: 1 / span 1
+            grid-column: 1 / span 1
+        @media only screen and (max-width: $breakpoint_xxs)
+            grid-template-rows: repeat(2, 1fr)
+            h2
+                grid-row: 1 / span 1
+    &.month-1
+        grid-template-rows: 1fr
+        h2
+            grid-row: 1 / span 1
+        @media only screen and (max-width: $breakpoint_single_column)
+            grid-template-rows: repeat(2, 1fr)
+            h2
+                grid-row: 1 / span 2
+        @media only screen and (max-width: $breakpoint_xxs)
+            grid-template-rows: repeat(3, 1fr)
+            h2
+                grid-row: 1 / span 1
     &.month-2
         grid-template-rows: 1fr 1fr
         h2
             grid-row: 1 / span 2
+        @media only screen and (max-width: $breakpoint_three_columns)
+            grid-template-rows: repeat(4, 1fr)
+            h2
+                grid-row: 1 / span 4
+        @media only screen and (max-width: $breakpoint_xxs)
+            grid-template-rows: repeat(5, 1fr)
+            h2
+                grid-row: 1 / span 1
     &.month-3
         grid-template-rows: 1fr 1fr 1fr
         h2
             grid-row: 1 / span 3
+        @media only screen and (max-width: $breakpoint_three_columns)
+            grid-template-rows: repeat(6, 1fr)
+            h2
+                grid-row: 1 / span 6
+        @media only screen and (max-width: $breakpoint_xxs)
+            grid-template-rows: repeat(7, 1fr)
+            h2
+                grid-row: 1 / span 1
     gap: var(--content-padding)
     h2
         font-size: 3rem
@@ -65,6 +117,14 @@ subheader
         text-orientation: mixed
         grid-column: 1 / span 2
         text-align: center
+        @media only screen and (max-width: #{$breakpoint_three_columns})
+            grid-column: 1 / span 1
+        @media only screen and (max-width: #{$breakpoint_single_column})
+            font-size: 2.5rem
+        @media only screen and (max-width: #{$breakpoint_xxs})
+            writing-mode: horizontal-tb
+            grid-column: 1 / span 4
+            text-align: left
     .event
         grid-column: span 3
         display: grid
@@ -77,6 +137,11 @@ subheader
                 width: 7ch
                 margin: 0 auto
                 filter: invert(1)
+                display: block
+            span.weekday
+                display: block
+            span.time
+                display: block
             span.time::before
                 content: '\f017'
                 font-family: 'FontAwesome'

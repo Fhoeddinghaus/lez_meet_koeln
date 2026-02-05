@@ -17,8 +17,26 @@
   --content-padding: 30px;
   --small-content-padding: 10px;
   --container-width: 1000px;
-  --header-offset: 20vh;
+  --header-offset-min: 10vh;
+  --header-offset-max: 20vh;
+  --header-offset: var(--header-offset-max);
   scroll-behavior: smooth;
+}
+@media only screen and (max-width: 585px) {
+  :root {
+    --header-offset-max: max(15vh, 2.5em);
+  }
+}
+@media only screen and (max-width: 520px) {
+  :root {
+    --header-offset-max: max(10vh, 2.5em);
+  }
+}
+@media only screen and (max-width: 410px) {
+  :root {
+    --content-padding: 15px;
+    --header-offset-max: 10vh;
+  }
 }
 
 .fg-darkorange {
@@ -226,6 +244,11 @@ header .header-inner {
   align-items: center;
   justify-content: space-between;
 }
+@media only screen and (max-width: 410px) {
+  header .header-inner.container {
+    padding: 0 var(--small-content-padding);
+  }
+}
 
 header img.header-logo, header img.header-logo-small {
   height: max(18vh, 2em);
@@ -280,7 +303,7 @@ header.shrunk nav {
     height: max(10vh, 2.5em);
   }
 }
-@media only screen and (max-width: 455px) {
+@media only screen and (max-width: 460px) {
   header img.header-logo {
     display: none;
   }
@@ -461,6 +484,10 @@ spacer.large {
   text-align: right !important;
 }
 
+.text-justify {
+  text-align: justify !important;
+}
+
 body.high-contrast .hc-fg-black {
   color: var(--black) !important;
 }
@@ -471,13 +498,10 @@ body.high-contrast .button-high-contrast {
   background-color: var(--white) !important;
   color: var(--black) !important;
 }
-body.high-contrast blockquote.bg-quotation-darkrose::before {
+body.high-contrast blockquote.bg-quotation-darkrose::before, body.high-contrast blockquote.bg-quotation-pink::before {
   content: "";
   width: 3em;
   height: 3em;
-  background: url("../assets/quotationmarks-darkrose.svg") no-repeat center center;
-  z-index: 0;
-  position: absolute;
   top: -2em;
   left: -3em;
 }
@@ -516,6 +540,12 @@ main {
 main h1, main h2, main h3, main h3, main h4, main h5, main h6 {
   margin-bottom: 0px;
   text-align: left;
+  line-height: 1em;
+}
+@media only screen and (max-width: 700px) {
+  main .hide-single-column {
+    display: none !important;
+  }
 }
 main a[id], main h1[id], main h2[id], main h3[id], main h4[id], main h5[id], main h6[id], main section[id] {
   scroll-margin-top: var(--header-offset);
@@ -570,7 +600,7 @@ main ul.inline-list li::before {
   left: 0;
   background: url("../assets/asterisk-tintedpink-rotated.svg") no-repeat;
   height: 100%;
-  width: 25vw;
+  width: calc(0.25 * var(--container-width));
   background-size: 300%;
   background-position: 92% 35%;
   z-index: 1;
@@ -584,7 +614,7 @@ main ul.inline-list li::before {
   left: 0;
   background: url("../assets/asterisk-tintedorange-rotated.svg") no-repeat;
   height: 100%;
-  width: 25vw;
+  width: calc(0.25 * var(--container-width));
   background-size: 300%;
   background-position: 92% 35%;
   z-index: 1;
@@ -594,7 +624,6 @@ main ul.inline-list li::before {
   max-width: var(--container-width);
   padding: 0 var(--content-padding);
   margin: 0 auto;
-  text-align: justify;
   position: relative;
 }
 .container.bg-asterisk-pink::before {
@@ -850,14 +879,14 @@ main ul.inline-list li::before {
   text-decoration: none;
 }
 
-blockquote.bg-quotation-darkrose {
+blockquote.bg-quotation-darkrose, blockquote.bg-quotation-pink {
   position: relative;
 }
-blockquote.bg-quotation-darkrose div {
+blockquote.bg-quotation-darkrose div, blockquote.bg-quotation-pink div {
   position: relative;
   z-index: 1;
 }
-blockquote.bg-quotation-darkrose::before {
+blockquote.bg-quotation-darkrose::before, blockquote.bg-quotation-pink::before {
   content: "";
   width: 6em;
   height: 6em;
@@ -866,6 +895,9 @@ blockquote.bg-quotation-darkrose::before {
   position: absolute;
   top: -2em;
   left: -2.5em;
+}
+blockquote.bg-quotation-darkrose.bg-quotation-pink::before, blockquote.bg-quotation-pink.bg-quotation-pink::before {
+  background: url("../assets/quotationmarks-pink.svg") no-repeat center center;
 }
 
 ul li.marker-clock::marker {
