@@ -881,8 +881,7 @@ main ul.inline-list li::before {
 
 .button-darkorange {
   background: var(--darkorange);
-  padding: var(--small-content-padding);
-  padding-right: var(--content-padding);
+  padding: 5px 22px 5px 10px;
   border-radius: var(--small-content-padding);
   text-decoration: none;
 }

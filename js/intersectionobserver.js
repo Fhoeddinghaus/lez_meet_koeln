@@ -2,13 +2,13 @@
 const sections = [
   document.querySelector("section#hero"),  
   document.querySelector("section#ueber"),
-  document.querySelector("section#kalender"),
+  //document.querySelector("section#kalender"),
 ];
 
 const navItems = {
   hero: null, // no nav item for hero section
   ueber: document.querySelector("#nav-ueber"),
-  kalender: document.querySelector("#nav-kalender"),
+  //kalender: document.querySelector("#nav-kalender"),
 };
 
 // intersection observer setup
