@@ -1,13 +1,23 @@
 .january, .april, .july, .october {
   background-color: var(--pink);
+  color: var(--white);
 }
 
 .february, .may, .august, .november {
   background-color: var(--lightorange);
+  color: var(--white);
 }
 
 .march, .june, .september, .december {
   background-color: var(--darkblue);
+  color: var(--white);
+}
+
+body.high-contrast .january, body.high-contrast .april, body.high-contrast .july, body.high-contrast .october, body.high-contrast .february, body.high-contrast .may, body.high-contrast .august, body.high-contrast .november {
+  color: var(--black);
+}
+body.high-contrast .january img.day, body.high-contrast .april img.day, body.high-contrast .july img.day, body.high-contrast .october img.day, body.high-contrast .february img.day, body.high-contrast .may img.day, body.high-contrast .august img.day, body.high-contrast .november img.day {
+  filter: invert(0) !important;
 }
 
 .text-1_2 {
@@ -28,6 +38,7 @@ subheader {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 1.2rem;
+  transition: 0.2s;
 }
 subheader .container.g-3x1 {
   display: grid;
@@ -41,7 +52,7 @@ subheader .container.g-3x1 .month-nav-item {
   text-decoration: none;
 }
 subheader .container.g-3x1 .month-nav-item:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .container.g-8x1 {
@@ -214,8 +225,4 @@ subheader .container.g-3x1 .month-nav-item:hover {
 .container.month .event .event-text {
   grid-column: 2/span 2;
   align-content: center;
-}
-
-body.high-contrast .hc-fg-black img.day {
-  filter: invert(0) !important;
 }/*# sourceMappingURL=calendar.css.map */

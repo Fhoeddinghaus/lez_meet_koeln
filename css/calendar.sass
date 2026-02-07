@@ -8,10 +8,19 @@ $breakpoint_xxs: "530px"
 // color-order: pink, lightorange, darkblue
 .january, .april, .july, .october
     background-color: var(--pink)
+    color: var(--white)
 .february, .may, .august, .november
     background-color: var(--lightorange)
+    color: var(--white)
 .march, .june, .september, .december
     background-color: var(--darkblue)
+    color: var(--white)
+
+body.high-contrast
+    .january, .april, .july, .october, .february, .may, .august, .november
+        color: var(--black)
+        img.day
+            filter: invert(0) !important
 
 .text-1_2
     font-size: 1.2rem
@@ -29,6 +38,7 @@ subheader
     font-family: "Poppins", sans-serif
     font-weight: 700
     font-size: 1.2rem
+    transition: 0.2s
 
     .container.g-3x1
         display: grid
@@ -40,7 +50,7 @@ subheader
             color: white
             text-decoration: none
             &:hover
-                opacity: 0.8
+                opacity: 0.9
 
 
 .container.g-8x1
@@ -150,7 +160,3 @@ subheader
             grid-column: 2 / span 2
             align-content: center
 
-body.high-contrast
-    .hc-fg-black
-        img.day
-            filter: invert(0) !important
