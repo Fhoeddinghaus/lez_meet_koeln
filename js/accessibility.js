@@ -1,6 +1,6 @@
 // high contrast toggle
-$(".button-high-contrast").click(function(event) {
+document.querySelector(".button-high-contrast").addEventListener("click", function(event) {
     // prevent default link behavior
     event.preventDefault();
-    $("body").toggleClass("high-contrast");
+    document.body.classList.toggle("high-contrast");
 });
