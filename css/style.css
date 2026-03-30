@@ -430,8 +430,20 @@ spacer.large {
   vertical-align: top;
 }
 
+.fs-1em {
+  font-size: 1em;
+}
+
+.fs-1rem {
+  font-size: 1rem;
+}
+
 .fs-1_5em {
   font-size: 1.5em;
+}
+
+.fs-1_5rem {
+  font-size: 1.5rem;
 }
 
 .fs-2em {
@@ -884,6 +896,13 @@ main ul.inline-list li::before {
 
 .button-darkorange {
   background: var(--darkorange);
+  padding: 5px 22px 5px 10px;
+  border-radius: var(--small-content-padding);
+  text-decoration: none;
+}
+
+.button-darkrose {
+  background: var(--darkrose);
   padding: 5px 22px 5px 10px;
   border-radius: var(--small-content-padding);
   text-decoration: none;
