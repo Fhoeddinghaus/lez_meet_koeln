@@ -96,6 +96,9 @@ subheader .container.g-3x1 .month-nav-item:hover {
   grid-row: 1/span 1;
   grid-column: 1/span 1;
 }
+.container.month.month-single h2 span.show-only-xxs {
+  display: none;
+}
 @media only screen and (max-width: 530px) {
   .container.month.month-single {
     grid-template-rows: auto 1fr;
@@ -103,6 +106,9 @@ subheader .container.g-3x1 .month-nav-item:hover {
   }
   .container.month.month-single h2 {
     grid-row: 1/span 1;
+  }
+  .container.month.month-single h2 span.show-only-xxs {
+    display: inline;
   }
 }
 .container.month.month-1 {

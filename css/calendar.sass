@@ -78,11 +78,15 @@ subheader
         h2
             grid-row: 1 / span 1
             grid-column: 1 / span 1
+            span.show-only-xxs
+                display: none
         @media only screen and (max-width: $breakpoint_xxs)
             grid-template-rows: auto 1fr
             grid-template-columns: repeat(3, 1fr)
             h2
                 grid-row: 1 / span 1
+                span.show-only-xxs
+                    display: inline
     &.month-1
         grid-template-rows: 1fr
         h2
